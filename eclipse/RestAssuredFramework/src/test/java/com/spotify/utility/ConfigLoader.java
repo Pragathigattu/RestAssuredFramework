@@ -1,0 +1,69 @@
+package com.spotify.utility;
+import java.util.Properties;
+public class ConfigLoader {//singleton class is a design pattern
+	
+	private  final Properties properties;
+	private static ConfigLoader configLoader;
+	
+	private ConfigLoader() {
+
+		properties= PropertyUtility.propertyLoader("src/main/resources/conf.Properties");
+	
+	}		
+		
+		
+		public static ConfigLoader getInstance() {
+		
+		if(configLoader==null) {
+			
+			configLoader= new ConfigLoader();		
+		}	
+		return configLoader;
+		
+		}
+public String getClientid() {
+ String prop = properties.getProperty("client_id");
+ 		
+if (prop!=null) return prop;
+else throw new  RuntimeException("property client_id is not specified in conf.properties file");
+
+}
+
+public String getClientsecret() {
+
+String prop =properties.getProperty("client_secret");
+if (prop!=null) return prop;
+else throw new RuntimeException("property client_secret is not specified in conf.Properties file");
+}
+
+
+
+public String getGranttype() {
+String prop = properties.getProperty("grant_type");
+if (prop!=null)return prop;
+else throw new RuntimeException("property grant_type is not specified in conf.Properties file");
+
+}
+
+public String getRefreshtoken() {
+
+String prop =properties.getProperty("refresh_token");
+if (prop!=null)return prop;
+else throw new RuntimeException("property refresh_token is not specified in conf.Properties file");
+
+}
+
+public String getUserid() {
+
+String prop =properties.getProperty("user_id");
+if (prop!=null) return prop;
+else throw new RuntimeException("property user_id is not specified in conf.Properties file");
+
+
+
+}
+
+
+
+
+}
