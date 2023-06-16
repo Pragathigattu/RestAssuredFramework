@@ -29,6 +29,9 @@ import static com.spotify.utility.FakerUtility.generateDescription;
 public class PlayListTest {
 
 //removed before class and created class SpecBulider
+	/*
+	 * Playlist builder
+	 */
 	@Step
 	public PlayList playListBuilder(String name, String description, Boolean _public) {
 		
